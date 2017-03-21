@@ -9,7 +9,7 @@
         <module name="myEmusicApp" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.9">
       <module name="myEmusicApp" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -1,36 +1,43 @@
 package com.eMusicStore.model;
 
 import javassist.SerialVersionUID;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 /**
  * Created by khyajubikram on 3/9/2017.
  */
 @Entity
 public class Product {
-
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
-    private int productId;
+    private long productId;
+
+    @NotEmpty(message = "Product name should not be null.")
     private String productName;
     private String productCategory;
     private String productDescription;
+
+    @Min(value = 0, message = "The product price must not be less than zero.")
     private double productPrice;
     private String productCondition;
     private String productStatus;
+
+    @Min(value = 0, message = "The product unit must not be less than zero.")
     private int unitStock;
     private String productManufacturer;
 
     @Transient
     private MultipartFile productImage;
 
-    public int getProductId() {
+    public long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
 
